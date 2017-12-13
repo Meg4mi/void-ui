@@ -89,4 +89,14 @@ export const zhCN: DocConfig[] = [
       },
     ],
   },
+  {
+    name: '组件',
+    children: [
+      {
+        name: 'carousel 轮播',
+        path: 'carousel',
+        fileName: 'carousel/carousel',
+      },
+    ],
+  },
 ];
