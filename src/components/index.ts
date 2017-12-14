@@ -1,1 +1,1 @@
-export { default as Carouser } from 'src/components/carousel/carousel.vue';
+export { default as VdCarousel } from 'src/components/carousel/carousel.vue';

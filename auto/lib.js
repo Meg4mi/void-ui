@@ -34,4 +34,10 @@ glob.sync('src/controls/**/*.scss').forEach(filePath => {
   controlsStyle += `@import '${filePath}';\n`;
 });
 
+glob.sync('src/components/**/*.scss').forEach(filePath => {
+  if (filePath.startsWith('src/components/base/')) return;
+  filePath = filePath.replace('src/', '').replace(/\.scss/, '');
+  controlsStyle += `@import '${filePath}';\n`;
+});
+
 fs.writeFileSync('src/index.scss', controlsStyle);

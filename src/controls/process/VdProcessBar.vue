@@ -55,4 +55,15 @@ export default class VdProcessBar extends VdStylableControl {
   }
 }
 </script>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fadde-leave-active {
+  opacity: 0;
+}
+</style>
 
