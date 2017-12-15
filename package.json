@@ -50,8 +50,10 @@
     "vue": "^2.5.8"
   },
   "devDependencies": {
+    "@types/animejs": "^2.0.0",
     "@types/highlight.js": "^9.12.2",
     "@types/jest": "^21.1.8",
+    "animejs": "^2.2.0",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
