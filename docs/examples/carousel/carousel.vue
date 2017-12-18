@@ -17,29 +17,29 @@ import {
 export default class CarouselBasic extends Vue {
   imgList = [
     {
-      src: 'https://cdn.pixabay.com/photo/2017/11/16/08/35/box-2953722_960_720.jpg',
+      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXeRz6oMVYF8tIWEqIqxDBTRS1whMG4kpU343W3vmrw67Pphzorw',
     },
     {
-      src: 'http://www.bangli.us/wp-content/uploads/2016/10/p62674_5.jpg',
+      src: 'http://img.mp.itc.cn/upload/20170711/c465e7bcf08f46559382ecb96aa61411_th.jpg',
     },
     {
-      src: 'https://cdn.pixabay.com/photo/2017/12/03/14/30/christmas-2995010_960_720.jpg',
-    },
-    {
-      src:
-        'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
+      src: 'http://d.5857.com/kadmmbz_120501/005.jpg',
     },
     {
       src:
-        'https://cdn.pixabay.com/photo/2017/12/04/16/20/background-2997277_960_720.jpg',
+        'http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/0D/01/ChMkJlgq0z-IC78PAA1UbwykJUgAAXxIwMAwQcADVSH340.jpg',
     },
     {
       src:
-        'https://cdn.pixabay.com/photo/2017/10/31/15/13/background-2905526_960_720.png',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzrFcYazjgEzKIQlQZbTGBCEq_ZmvcKdgmhxkmYwjCUQtf30Pz',
     },
     {
       src:
-        'https://cdn.pixabay.com/photo/2017/11/26/21/00/christmas-gift-2979922_960_720.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThvkhgUE60PUFq1ZLgY4As7j-Nq5nvHODNx1-C_aw59hddCx5tBw',
+    },
+    {
+      src:
+        'http://img-download.pchome.net/download/1k1/mo/2k/oql7us-22uz.jpg',
     },
   ];
 }

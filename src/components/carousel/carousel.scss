@@ -11,24 +11,14 @@
     top: 0;
     width: 100%;
     height: 77%;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: 0;
-    // overflow-x: hidden;
+    font-size: 0;
+    white-space: nowrap;
     overflow: hidden;
 
     .big-img-item {
+      display: inline-block;
       width: 100%;
       height: 100%;
-
-      &.status-show {
-        display: block;
-      }
-
-      &.status-hidden {
-        display: none;
-      }
 
       .big-img {
         width: 100%;
@@ -51,25 +41,30 @@
 
       .small-img-item {
         display: inline-block;
-        position: relative;
         width: calc((100% - 3 * #{$small-img-margin-right})/ 4);
         height: 100%;
+        opacity: 0.6;
+        transition: opacity ease 0.3s;
         margin-right: $small-img-margin-right;
 
         &:last-child {
           margin-right: 0;
         }
-        &::before {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translate(-50%, -100%) rotate(180deg);
-          width: 0;
-          height: 0;
-          border: 0.1rem solid transparent;
-          border-top: 0.1rem solid #bbbbbb;
+
+        &.select {
+          opacity: 1;
+          &::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -100%) rotate(180deg);
+            width: 0;
+            height: 0;
+            border: 0.1rem solid transparent;
+            border-top: 0.1rem solid #bbbbbb;
+          }
         }
       }
 

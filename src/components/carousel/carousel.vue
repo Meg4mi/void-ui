@@ -4,10 +4,12 @@
       <div class="big-img-item"
            v-for="(item, index) in imgSource"
            :key="index"
-           :class="index === currentBigImgIndex ? 'status-show' : 'status-hidden'">
+           >
+           <a  :href="item.link" target="_blank">
         <img class="big-img"
              :src="item.src"
              :alt="item.alt || ''" />
+           </a>
       </div>
     </div>
     <div class="control-wrapper">
@@ -15,11 +17,11 @@
            class="small-img-wrapper">
         <div class="small-img-item"
              v-for="(item, index) in imgSource"
+            :class="index === currentBigImgIndex ? 'select' : ''"
              :key="index"
              @click="smallImageClick(index)">
           <img class="small-img"
-               :src="item.src"
-               :data-index="index" />
+               :src="item.src"/>
         </div>
       </div>
       <span class="prev"
@@ -47,12 +49,12 @@ import anime from 'animejs';
 
 const easing = 'easeInOutCirc';
 const duration = 320;
+let moving = false
 
 @Component
 export default class VdCarousel extends Vue {
   currentBigImgIndex: number = 0;
   slideImgIndex: number = 0;
-  currentBigImg: HTMLElement;
   bigImgs: NodeList;
   smallImgs: NodeList;
 
@@ -76,7 +78,6 @@ export default class VdCarousel extends Vue {
     this.bigImgs = this.$el.querySelectorAll('.big-img-item');
     this.smallImgs = this.$el.querySelectorAll('.small-img-item');
 
-    this.currentBigImg = this.bigImgs[this.currentImgIndex] as HTMLElement;
 
     this.slideImgIndex = Math.min(this.currentImgIndex, this.calculateIndex);
   }
@@ -94,22 +95,26 @@ export default class VdCarousel extends Vue {
   }
 
   smallImageClick(index: number) {
+    if (moving) {
+      return
+    }
     if (index === this.currentBigImgIndex) {
       return;
     }
 
-    let oldTarget = this.bigImgs[this.currentBigImgIndex];
-    let newTarget = this.bigImgs[index];
-
     let timeline = anime.timeline();
     timeline.add({
-      targets: [oldTarget, newTarget],
-      translateX: index < this.currentBigImgIndex ? '-100%' : '100%',
+      targets: this.bigImgs,
+      translateX: `-= ${(index - this.currentBigImgIndex) * 100}%`,
       easing: 'linear',
       duration,
       begin: () => {
         this.currentBigImgIndex = index;
+        moving = true
       },
+      complete:() => {
+        moving = false
+      }
     });
   }
 

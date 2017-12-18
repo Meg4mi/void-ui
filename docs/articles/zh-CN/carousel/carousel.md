@@ -8,8 +8,6 @@
 
 <example-board :component="VdcarouselBasic" :source="VdcarouselBasicSource"></example-board>
 
-自适应
-
 <script>
 import VdcarouselBasic from 'docs/examples/carousel/carousel'
 import VdcarouselBasicSource from 'docs/examples/carousel/carousel.txt'
