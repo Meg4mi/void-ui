@@ -102,8 +102,7 @@ export default class VdCarousel extends Vue {
       return;
     }
 
-    let timeline = anime.timeline();
-    timeline.add({
+    anime({
       targets: this.bigImgs,
       translateX: `-= ${(index - this.currentBigImgIndex) * 100}%`,
       easing: 'linear',
