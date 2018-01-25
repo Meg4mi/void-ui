@@ -5,12 +5,6 @@
   $subnav-content-height: 0.6rem;
   $subnav-font-size: 0.24rem;
   $subnav-font-weight: bold;
-  $subnav-font-color: #ffffff;
-
-  $subnav-background: (
-    lite: $tone-primary,
-    dark: $theme-dark-background-higher
-  );
 
   @include flex(row, flex-start, stretch, nowrap);
   width: 100%;
@@ -23,25 +17,18 @@
 
   @each $theme in $ss-themes {
     &.theme-#{$theme} {
+      background-color: map-get($map: $theme-background-colors, $key: #{$theme}-higher);
       .#{$void}-subnav-item {
         color: map-get($map: $theme-foreground-colors, $key: $theme);
-        background-color: map-get($map: $theme-background-colors, $key: $theme);
         &.selected {
-          color: $color-white;
-          background-color: map-get($map: $subnav-background, $key: $theme);
+          background-color: map-get(
+            $map: $theme-background-colors,
+            $key: #{$theme}-hover
+          );
         }
       }
     }
   }
-
-  // .#{$void}-subnav-item:first-child {
-  //   border-top-left-radius: $border-radius-base;
-  //   border-bottom-left-radius: $border-radius-base;
-  // }
-  // .#{$void}-subnav-item:last-child {
-  //   border-top-right-radius: $border-radius-base;
-  //   border-bottom-right-radius: $border-radius-base;
-  // }
 }
 
 .#{$void}-subnav-item {
