@@ -115,7 +115,7 @@
 
   .tabs-body {
     @include flex(row, flex-start, stretch, nowrap);
-    overflow-x: hidden;
+    overflow: hidden;
     margin: ($tabs-padding * 2) $tabs-padding;
   }
 
