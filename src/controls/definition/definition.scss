@@ -16,6 +16,9 @@
       line-height: $definition-line-height;
       margin-right: $definition-item-margin;
     }
+    & + & {
+      margin-top: $definition-item-margin;
+    }
   }
 
   @each $theme in $ss-themes {
