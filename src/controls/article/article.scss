@@ -65,46 +65,6 @@
     margin: 0.32rem 0;
   }
 
-  table {
-    width: 100%;
-    padding: 0;
-    border-collapse: collapse;
-  }
-
-  table tr {
-    border-top: $border-base;
-    margin: 0;
-    padding: 0;
-  }
-
-  table tr th,
-  table tr td {
-    border: $border-base;
-  }
-
-  table tr th {
-    font-weight: bold;
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
-  }
-
-  table tr td {
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
-  }
-
-  table tr th :first-child,
-  table tr td :first-child {
-    margin-top: 0;
-  }
-
-  table tr th :last-child,
-  table tr td :last-child {
-    margin-bottom: 0;
-  }
-
   // tr:hover {
   //   background-color: $lite-background-hover;
   // }
@@ -129,20 +89,6 @@
             $map: $theme-background-colors,
             $key: #{$theme}-higher
           );
-        }
-
-        table {
-          background-color: map-get($map: $theme-background-colors, $key: #{$theme}-high);
-        }
-        table thead {
-          background-color: map-get(
-            $map: $theme-background-colors,
-            $key: #{$theme}-higher
-          );
-        }
-        table tr th,
-        table tr td {
-          border-color: map-get($map: $theme-background-colors, $key: #{$theme}-border);
         }
 
         code {
