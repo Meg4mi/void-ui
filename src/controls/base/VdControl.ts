@@ -14,7 +14,7 @@ export type ControlTone = 'primary' | 'secondary' | 'success' | 'warning' | 'dan
 export type ControlSkin = 'fill' | 'flat' | 'plain' | 'silk';
 export type ControlSize = 'small' | 'medium' | 'large';
 export type ControlShape = 'rect' | 'square' | 'circle';
-export type ControlRaise = boolean | number | string;
+export type ControlRaise = 1 | 2 | 3 | 4 | '1' | '2' | '3' | '4';
 
 /* Hub */
 
@@ -38,12 +38,8 @@ export class VdControl extends Vue {
     return this.$options.name;
   }
 
-  @Prop({ default: false })
-  disabled: boolean | '';
-
-  get isDisabled(): boolean {
-    return this.disabled || this.disabled === '';
-  }
+  @Prop({ type: Boolean, default: false })
+  disabled: boolean;
 }
 
 /* Stylable Control */
@@ -64,15 +60,11 @@ export class VdStylableControl extends VdControl {
   @Prop({ type: String, default: 'rect' })
   shape: ControlShape;
 
-  @Prop({ type: [Boolean, Number, String], default: true })
+  @Prop({ type: [Number, String], default: 0 })
   raise: ControlRaise;
 
   @Prop({ type: Boolean, default: true })
-  bordered: boolean | '';
-
-  get isBordered(): boolean {
-    return this.bordered || this.bordered === '';
-  }
+  bordered: boolean;
 
   get stylableClasses(): ClassNames {
     return [
@@ -83,8 +75,8 @@ export class VdStylableControl extends VdControl {
       `shape-${this.shape}`,
       `raise-${this.raise}`,
       {
-        disabled: this.isDisabled,
-        bordered: this.isBordered,
+        disabled: this.disabled,
+        bordered: this.bordered,
       },
     ];
   }

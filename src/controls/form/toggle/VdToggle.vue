@@ -105,7 +105,7 @@ export default class VdToggle extends VdStylableControl {
       `theme-${this.theme || this.$void.theme}`,
       `shape-${this.shape}`,
       {
-        disabled: this.isDisabled,
+        disabled: this.disabled,
         onned: this.isOnned,
       },
     ];

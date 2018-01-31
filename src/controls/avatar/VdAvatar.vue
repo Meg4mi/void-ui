@@ -57,7 +57,7 @@ export default class VdAvatar extends VdStylableControl {
       `theme-${this.theme || this.$void.theme}`,
       `size-${this.size}`,
       {
-        bordered: this.isBordered,
+        bordered: this.bordered,
       },
     ];
   }

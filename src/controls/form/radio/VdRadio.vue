@@ -105,7 +105,7 @@ export default class VdRadio extends VdStylableControl {
       `size-${size}`,
       {
         checked: this.isChecked,
-        disabled: this.isDisabled,
+        disabled: this.disabled,
       },
     ];
   }
