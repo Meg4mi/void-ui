@@ -10,11 +10,16 @@
 
   .definition-item {
     display: flex;
+    margin: $gutter-xsmall 0;
     .definition-label {
       width: $definition-label-width;
       font-weight: bold;
       line-height: $definition-line-height;
       margin-right: $definition-item-margin;
+      flex: none;
+    }
+    .definition-content {
+      flex: auto;
     }
     & + & {
       margin-top: $definition-item-margin;
@@ -24,7 +29,6 @@
   @each $theme in $ss-themes {
     &.theme-#{$theme} {
       .definition-item {
-        display: flex;
         .definition-label {
           color: map-get($map:$theme-foreground-colors, $key:#{$theme}-secondary);
         }
