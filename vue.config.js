@@ -115,10 +115,14 @@ module.exports = {
     open: true,
     host: '0.0.0.0',
     port: 8080,
-    https: true,
+    https: false,
     hotOnly: false,
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
-    proxy: null, // string | Object
+    proxy: {
+      '/graphql': {
+        target: 'http://192.168.71.71:8080',
+      },
+    },
     before: app => {},
   },
 

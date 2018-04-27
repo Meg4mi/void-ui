@@ -24,6 +24,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "@playlyfe/gql": "^2.6.0",
     "@types/ejs": "^2.5.0",
     "@types/globby": "^6.1.0",
     "@types/jest": "^22.2.2",
