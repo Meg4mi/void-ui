@@ -8,6 +8,11 @@ import Controls from '@docs/views/Controls.vue';
 import Tools from '@docs/views/Tools.vue';
 import Demos from '@docs/views/Demos.vue';
 
+import GameDb from '@docs/gamedb/GameDb.vue';
+import ViewIndex from '@docs/gamedb/ViewIndex.vue';
+import ViewGame from '@docs/gamedb/ViewGame.vue';
+import ViewCollection from '@docs/gamedb/ViewCollection.vue';
+
 Vue.use(Router);
 
 /**
@@ -20,8 +25,29 @@ export default new Router({
     {
       path: '/',
       redirect: to => {
-        return 'zh-CN';
+        return 'gamedb';
       },
+    },
+    {
+      path: '/gamedb',
+      component: GameDb,
+      children: [
+        {
+          path: '',
+          component: ViewIndex,
+          name: 'index',
+        },
+        {
+          path: 'game/:id',
+          component: ViewGame,
+          name: 'game',
+        },
+        {
+          path: ':collection/:id',
+          component: ViewCollection,
+          name: 'collection',
+        },
+      ],
     },
     {
       path: '/:locale',

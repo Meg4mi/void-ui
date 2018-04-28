@@ -1,0 +1,138 @@
+@import '~@void/controls/base/VdControl';
+
+$game-card-padding: 0.4rem;
+
+@include comp('view-collection') {
+  height: 100vh;
+
+  @include elem('inner') {
+    display: flex;
+  }
+
+  @include elem('menu') {
+    width: 24rem;
+    min-height: 72rem;
+    flex: none;
+  }
+
+  @include elem('content') {
+    background-color: theme('lite-bg-high');
+
+    padding: 3.2rem 1.6rem;
+
+    flex: 1;
+  }
+
+  @include elem('title') {
+    text-align: center;
+    padding: 0 $game-card-padding;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  @include elem('game-wrapper') {
+    min-height: 60rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  @include elem('loading') {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  @include elem('error') {
+    text-align: center;
+    flex: 1;
+    color: tone('danger-standard');
+  }
+
+  @include elem('controls') {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    padding: 1.6rem $game-card-padding;
+
+    button {
+      cursor: pointer;
+      height: 3.2rem;
+      width: 9.6rem;
+      color: $color-white;
+      background-color: tone('primary-standard');
+      border: none;
+      border-radius: $border-radius-base;
+
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba($color: $color-white, $alpha: 0.6);
+      }
+    }
+  }
+  @include elem('controls-white') {
+    flex: 1;
+  }
+  @include elem('page-number') {
+    width: 12rem;
+    text-align: center;
+  }
+}
+
+@include comp('game-card') {
+  padding: ($game-card-padding * 2) $game-card-padding;
+
+  flex: 0 0 50%;
+
+  @include elem('inner') {
+    cursor: pointer;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    transition: all ease-in-out 0.2s;
+    background-color: theme('lite-bg-normal');
+    @include extend-atom('raise-1');
+    &:hover {
+      @include extend-atom('raise-2');
+    }
+  }
+
+  @include elem('cover-container') {
+    $cover-scale: 0.4;
+    width: 46rem * $cover-scale;
+    height: 21.5rem * $cover-scale;
+
+    background-color: theme('lite-bg-higher');
+  }
+  @include elem('cover') {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include elem('content') {
+    padding: $game-card-padding * 2;
+    flex: 1;
+  }
+
+  @include elem('main-title') {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.8rem;
+  }
+
+  @include elem('sub-title') {
+    color: theme('lite-fg-sub');
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+  }
+}

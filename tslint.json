@@ -1,5 +1,5 @@
 {
-  "defaultSeverity": "error",
+  "defaultSeverity": "warning",
   "extends": "tslint-microsoft-contrib",
   "rules": {
     "class-name": true,

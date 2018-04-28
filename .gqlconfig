@@ -1,0 +1,13 @@
+{
+  schema: {
+    files: "schemas/**/*.gql"
+  },
+  query: {
+    files: [
+      {
+        match: 'docs/**/*.ts', // for ts
+        parser: ['EmbeddedQueryParser', { startTag: 'query', endTag: '`' }],
+      },
+    ],
+  },
+}
