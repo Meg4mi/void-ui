@@ -29,6 +29,7 @@
       "check-whitespace"
     ],
     "quotemark": [true, "single", "jsx-double", "avoid-escape", "avoid-template"],
+    "no-multiline-string": false,
     "trailing-comma": [true, "all"],
     "semicolon": [true, "always", "ignore-bound-class-methods"],
     "whitespace": [
