@@ -63,14 +63,9 @@ import axios, { AxiosResponse } from 'axios';
 import { MenuItem } from '@void/VoidUI';
 import GameCard from '@docs/gamedb/GameCard.vue';
 
-// region ======== GraphQL ========
-
 // tslint:disable:no-any
 // tslint:disable:no-unsafe-any
-
 const API_URL: string = '/graphql';
-
-// endregion
 
 /**
  * View Collection
@@ -103,13 +98,7 @@ export default class ViewCollection extends Vue {
   }
   private skip: number = 0;
 
-  private data: Collection = {
-    id: 0,
-    name: '',
-    desc: '',
-    games: [],
-    size: 0,
-  };
+  private data: Collection = <any>null;
 
   private inited: boolean = false;
   private loading: boolean = false;
@@ -138,7 +127,7 @@ export default class ViewCollection extends Vue {
     // console.log(JSON.stringify(collection, undefined, '  '));
     this.data = collection;
 
-    if (!this.data.name || this.data.games.length === 0) {
+    if (this.data.games.length === 0) {
       this.error = true;
     }
 

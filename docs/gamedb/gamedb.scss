@@ -2,6 +2,29 @@
 
 $game-card-padding: 0.4rem;
 
+@include comp('flexbox') {
+  $gutter: 0.8rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  // flex-wrap: wrap;
+  margin: -$gutter;
+
+  @include elem('left') {
+    flex: 0 0 70%;
+    padding: $gutter;
+    // border: 1px solid red;
+  }
+
+  @include elem('right') {
+    flex: 0 0 30%;
+    padding: $gutter;
+    // border: 1px solid red;
+  }
+}
+
 @include comp('view-collection') {
   height: 100vh;
 
@@ -19,6 +42,7 @@ $game-card-padding: 0.4rem;
     background-color: theme('lite-bg-high');
 
     padding: 3.2rem 1.6rem;
+    margin-left: 0.8rem;
 
     flex: 1;
   }
@@ -31,26 +55,38 @@ $game-card-padding: 0.4rem;
   }
 
   @include elem('game-wrapper') {
+    position: relative;
     min-height: 60rem;
 
     display: flex;
     justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
+    align-content: center;
+    align-items: center;
     flex-wrap: wrap;
   }
   @include elem('loading') {
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
-    flex: 1;
   }
   @include elem('error') {
-    text-align: center;
-    flex: 1;
-    color: tone('danger-standard');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
 
   @include elem('controls') {
@@ -134,5 +170,145 @@ $game-card-padding: 0.4rem;
     font-weight: normal;
     padding: 0;
     margin: 0;
+  }
+}
+
+// View Game
+@include comp('view-game') {
+  @include elem('loading') {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    background-color: theme('dark-bg-normal');
+  }
+
+  @include elem('background-container') {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @include elem('background') {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+  }
+
+  @include elem('background-mask') {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, theme('dark-bg-normal'), transparent);
+  }
+
+  @include elem('hero') {
+    position: relative;
+    height: 16rem;
+  }
+
+  @include elem('hero-content') {
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  @include elem('main-title') {
+    flex: 0 0 100%;
+    margin: 0;
+    margin-bottom: 0.8rem;
+
+    color: theme('dark-fg-normal');
+  }
+
+  @include elem('sub-title') {
+    flex: 0 0 100%;
+    margin: 0;
+
+    font-weight: normal;
+    color: theme('dark-fg-sub');
+  }
+
+  @include elem('screenshot-wrapper') {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding: 1.6rem 1.6rem 0;
+
+    background-color: theme('dark-bg-high');
+    @include extend-atom('raise-1');
+  }
+  @include elem('screenshot-selected') {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.6rem;
+  }
+  @include elem('screenshot') {
+    width: 12rem;
+    height: 6.803rem;
+    object-fit: cover;
+    margin-bottom: 1.6rem;
+  }
+
+  @include elem('info') {
+    background-color: theme('dark-bg-high');
+    padding: $game-card-padding * 2;
+    @include extend-atom('raise-1');
+  }
+
+  @include elem('info-row') {
+    padding: 0.8rem 0;
+    line-height: 1.5;
+
+    @include when('record') {
+      display: flex;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+
+  @include elem('info-row-label') {
+    width: 8rem;
+    flex: none;
+  }
+  @include elem('info-row-value') {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  @include elem('cover') {
+    width: 100%;
+    height: auto;
+  }
+
+  @include elem('tag-wrapper') {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.8rem;
+    padding: 0.8rem 0.4rem;
+  }
+  @include elem('tag') {
+    color: $color-white;
+    background-color: tone('primary-standard');
+    border-radius: $border-radius-base;
+    padding: 0 0.8rem;
+    margin: 0.4rem;
   }
 }
