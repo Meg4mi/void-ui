@@ -15,10 +15,10 @@ module.exports = {
   // sub-path here. For example, if your app is deployed at
   // https://www.foobar.com/my-app/
   // then change this to '/my-app/'
-  baseUrl: '//cdn.duduluu.com/',
+  baseUrl: '/',
 
   // where to output built files
-  // outputDir: 'dist',
+  outputDir: SOLUTION === 'docs' ? 'www' : 'dist',
 
   // whether to use eslint-loader for lint on save.
   // valid values: true | false | 'error'
@@ -50,22 +50,22 @@ module.exports = {
       .set('@void', resolve('src'))
       .set('@docs', resolve('docs'));
 
-    if (process.env.NODE_ENV === 'production') {
-      // customize js output file name
-      config.output
-        .filename(`js/[name].[chunkhash].js`)
-        .chunkFilename(`js/[id].[chunkhash].js`)
-        .hashFunction(HASH_FUNCTION)
-        .hashDigest(HASH_DIGEST)
-        .hashDigestLength(HASH_DIGEST_LENGTH);
+    // if (process.env.NODE_ENV === 'production') {
+    //   // customize js output file name
+    //   config.output
+    //     .filename(`js/[name].[chunkhash].js`)
+    //     .chunkFilename(`js/[id].[chunkhash].js`)
+    //     .hashFunction(HASH_FUNCTION)
+    //     .hashDigest(HASH_DIGEST)
+    //     .hashDigestLength(HASH_DIGEST_LENGTH);
 
-      // customize css output file name
-      config.plugin('extract-css').tap(args => [
-        Object.assign(args[0], {
-          filename: `css/[name].[${HASH_FUNCTION}:contenthash:${HASH_DIGEST}:${HASH_DIGEST_LENGTH}].css`,
-        }),
-      ]);
-    }
+    //   // customize css output file name
+    //   config.plugin('extract-css').tap(args => [
+    //     Object.assign(args[0], {
+    //       filename: `css/[name].[${HASH_FUNCTION}:contenthash:${HASH_DIGEST}:${HASH_DIGEST_LENGTH}].css`,
+    //     }),
+    //   ]);
+    // }
   },
   configureWebpack: () => {},
 
